@@ -73,3 +73,14 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+fos_rest:
+    routing_loader:
+        include_format: false
+    view:
+        view_response_listener: true
+    format_listener:
+            rules:
+                - { path: '^/', priorities: ['json'], fallback_format: 'json' }
+
+    body_listener:
+        enabled: true
